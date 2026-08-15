@@ -1,4 +1,4 @@
-# Myntra MarketWatch: Unveiling E-commerce Trends
+# Myntra MarketJeans: Unveiling E-commerce Trends
 
 A denim-category deep-dive analytics project built on a real, publicly available Myntra product dataset — covering data cleaning, PostgreSQL database design, SQL analysis (basic queries through CTEs and window functions), Python EDA, and a 3-page Power BI dashboard.
 
