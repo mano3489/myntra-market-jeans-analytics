@@ -1,6 +1,6 @@
-# Myntra MarketWatch — Business Insights
+# Myntra marketJeans — Business Insights
 
-**Dataset:** Myntra-style e-commerce product dataset (publicly available, scraped listing data), scoped to men's jeans/denim products only — 35,073 cleaned product listings across 417 brands.
+**Dataset:** Myntra Jeans Dataset — a publicly available Myntra-style e-commerce product dataset (scraped listing data), scoped to men's jeans/denim products only — 35,073 cleaned product listings across 417 brands.
 
 **Scope note:** All findings below are PRODUCT-LEVEL (pricing, discounting, ratings, review counts). No customer/transaction data exists in this dataset, so no purchase-behavior or revenue claims are made anywhere in this report (see `sql/08_customer_analysis.sql` for why). All relationships described are correlational/associative, not causal, per this project's integrity rules.
 

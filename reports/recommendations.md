@@ -1,4 +1,4 @@
-# Myntra MarketWatch — Business Recommendations
+# Myntra MarketJeans — Business Recommendations
 
 Every recommendation below is derived directly from a finding in `reports/business_insights.md`, which in turn is traced to specific SQL queries and Python charts. No recommendation here relies on external assumptions, industry benchmarks, or invented data.
 
