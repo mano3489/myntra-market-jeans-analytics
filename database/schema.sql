@@ -1,0 +1,109 @@
+-- =====================================================================
+-- Myntra MarketWatch — Database Schema Design (Documentation)
+-- =====================================================================
+-- Scope note: This project analyzes a single-category (men's jeans/denim)
+-- product dataset scraped from Myntra. There is NO customer or
+-- transaction data available, so this schema is PRODUCT-LEVEL ONLY.
+-- No customers/transactions/transaction_items tables are created,
+-- because doing so would require inventing data that does not exist.
+-- =====================================================================
+
+
+-- ---------------------------------------------------------------------
+-- TABLE: brands
+-- ---------------------------------------------------------------------
+-- WHY THIS TABLE EXISTS:
+-- The cleaned CSV has 417 unique brand names repeated across 35,073
+-- product rows. Storing the brand name as raw text on every product row
+-- would mean the same string is duplicated thousands of times (e.g.
+-- "WROGN" appears on ~5,000+ rows). That wastes storage and, more
+-- importantly, creates a risk of inconsistent spelling over time.
+--
+-- NORMALIZATION: Extracting brand into its own table with a surrogate
+-- integer primary key (brand_id) and referencing it from products via
+-- a foreign key is a standard 2NF/3NF normalization step: each brand
+-- name is stored exactly once.
+--
+-- PRIMARY KEY: brand_id (surrogate, auto-incrementing) — simpler and
+-- faster to join/index than a text primary key on brand_name.
+-- ---------------------------------------------------------------------
+
+
+-- ---------------------------------------------------------------------
+-- TABLE: fit_types
+-- ---------------------------------------------------------------------
+-- WHY THIS TABLE EXISTS:
+-- Since this dataset has no true "category" column, fit_type (Slim Fit,
+-- Loose Fit, Skinny Fit, etc., extracted from product_name text in the
+-- cleaning step) is our closest equivalent to a sub-category dimension.
+-- There are only ~12 distinct fit types shared across 35,073 products,
+-- so normalizing this into a lookup table avoids repeating the same
+-- short strings tens of thousands of times.
+--
+-- PRIMARY KEY: fit_type_id (surrogate)
+-- ---------------------------------------------------------------------
+
+
+-- ---------------------------------------------------------------------
+-- TABLE: rise_types
+-- ---------------------------------------------------------------------
+-- WHY THIS TABLE EXISTS:
+-- Same reasoning as fit_types — rise (Mid-Rise/High-Rise/Low-Rise/Not
+-- Specified) is a small, repeating set of values extracted from text.
+--
+-- PRIMARY KEY: rise_type_id (surrogate)
+-- ---------------------------------------------------------------------
+
+
+-- ---------------------------------------------------------------------
+-- TABLE: products
+-- ---------------------------------------------------------------------
+-- WHY THIS TABLE EXISTS:
+-- This is the central fact table — one row per cleaned product listing
+-- (35,073 rows). It holds the numeric/measured attributes (price, mrp,
+-- discount_percent, rating, review_count) and foreign keys pointing to
+-- the three lookup tables above instead of repeating their text values.
+--
+-- PRIMARY KEY: product_id (the synthetic ID generated in Step 4, e.g.
+-- 'JN00001'). Kept as-is from the cleaned CSV so the database and CSV
+-- stay traceable to each other.
+--
+-- FOREIGN KEYS:
+--   brand_id     REFERENCES brands(brand_id)
+--   fit_type_id  REFERENCES fit_types(fit_type_id)
+--   rise_type_id REFERENCES rise_types(rise_type_id)
+--
+-- CONSTRAINTS (business rules enforced at the database level, not just
+-- in Python):
+--   price > 0, mrp > 0, price <= mrp        (an item can't cost more
+--                                             than its own list price)
+--   discount_percent BETWEEN 0 AND 100
+--   rating BETWEEN 0 AND 5
+--   review_count >= 0
+--
+-- INDEXES:
+--   idx_products_brand      on brand_id      — speeds up brand-level
+--                                               GROUP BY / JOIN queries
+--                                               (Step 9: brand analysis)
+--   idx_products_fit_type   on fit_type_id   — speeds up fit-type
+--                                               GROUP BY (Step 8 analog
+--                                               of category analysis)
+--   idx_products_price      on price         — speeds up price-range
+--                                               filtering and ORDER BY
+--                                               (Step 10: pricing analysis)
+--   idx_products_rating     on rating        — speeds up rating-based
+--                                               filtering/sorting
+--                                               (Step 12: rating analysis)
+-- ---------------------------------------------------------------------
+
+
+-- ---------------------------------------------------------------------
+-- CUSTOMER / TRANSACTION DATA — EXPLICITLY NOT MODELED
+-- ---------------------------------------------------------------------
+-- Per project integrity rules: this dataset contains no customer IDs,
+-- order IDs, purchase timestamps, or transaction amounts. Creating
+-- customers/transactions/transaction_items tables would require
+-- fabricating data that doesn't exist. Step 13 (Customer Analysis) will
+-- be explicitly marked as "Not Applicable — no transaction data available"
+-- rather than simulated.
+-- ---------------------------------------------------------------------
