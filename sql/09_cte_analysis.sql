@@ -1,5 +1,5 @@
 -- =====================================================================
--- Myntra MarketWatch — 09_cte_analysis.sql
+-- Myntra MarketJean — 09_cte_analysis.sql
 -- Common Table Expressions (CTEs) for multi-step business questions
 -- =====================================================================
 -- WHY CTEs HERE: each query below genuinely needs an intermediate,

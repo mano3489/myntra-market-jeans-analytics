@@ -1,5 +1,5 @@
 -- =====================================================================
--- Myntra MarketWatch — 05_pricing_analysis.sql
+-- Myntra MarketJean — 05_pricing_analysis.sql
 -- Pricing distribution, price bands, and price-vs-rating relationship
 -- =====================================================================
 -- PRICE BAND THRESHOLDS — chosen from the ACTUAL price distribution

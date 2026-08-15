@@ -1,5 +1,5 @@
 """
-Myntra MarketWatch — Load Cleaned Data into PostgreSQL
+Myntra MarketJean — Load Cleaned Data into PostgreSQL
 ========================================================
 Reads data/cleaned/myntra_jeans_cleaned.csv and loads it into the
 4 tables created by database/create_tables.sql (brands, fit_types,

@@ -1,5 +1,5 @@
 -- =====================================================================
--- Myntra MarketWatch — 06_discount_analysis.sql
+-- Myntra MarketJean — 06_discount_analysis.sql
 -- Deep-dive into discount patterns
 -- =====================================================================
 -- REMINDER (per project integrity rules): this data shows ASSOCIATION

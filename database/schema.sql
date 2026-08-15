@@ -1,5 +1,5 @@
 -- =====================================================================
--- Myntra MarketWatch — Database Schema Design (Documentation)
+-- Myntra MarketJean — Database Schema Design (Documentation)
 -- =====================================================================
 -- Scope note: This project analyzes a single-category (men's jeans/denim)
 -- product dataset scraped from Myntra. There is NO customer or

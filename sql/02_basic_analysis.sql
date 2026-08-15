@@ -1,5 +1,5 @@
 -- =====================================================================
--- Myntra MarketWatch — 02_basic_analysis.sql
+-- Myntra MarketJean — 02_basic_analysis.sql
 -- Basic descriptive SQL analysis on the products table
 -- =====================================================================
 

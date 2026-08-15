@@ -1,5 +1,5 @@
 -- =====================================================================
--- Myntra MarketWatch — 04_brand_analysis.sql
+-- Myntra MarketJean — 04_brand_analysis.sql
 -- Brand-level performance analysis
 -- =====================================================================
 -- THRESHOLD NOTE: Brand product counts range from 1 to 3,300 (median

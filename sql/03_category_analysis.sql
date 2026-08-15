@@ -1,5 +1,5 @@
 -- =====================================================================
--- Myntra MarketWatch — 03_category_analysis.sql
+-- Myntra MarketJean — 03_category_analysis.sql
 -- "Category" analysis using fit_type as our sub-category dimension
 -- (this dataset has no true category column — see database/schema.sql
 -- for why fit_type is the closest legitimate equivalent)

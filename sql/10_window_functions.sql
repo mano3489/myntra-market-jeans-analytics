@@ -1,5 +1,5 @@
 -- =====================================================================
--- Myntra MarketWatch — 10_window_functions.sql
+-- Myntra MarketJean — 10_window_functions.sql
 -- Window functions: ROW_NUMBER, RANK, DENSE_RANK, LAG, LEAD, SUM OVER,
 -- AVG OVER, and an explicit window frame example
 -- =====================================================================

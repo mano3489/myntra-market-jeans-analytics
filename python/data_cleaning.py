@@ -1,5 +1,5 @@
 """
-Myntra MarketWatch — Data Cleaning Script
+Myntra MarketJean — Data Cleaning Script
 ==========================================
 Input:  data/raw/myntra_dataset_ByScraping.csv
 Output: data/cleaned/myntra_jeans_cleaned.csv

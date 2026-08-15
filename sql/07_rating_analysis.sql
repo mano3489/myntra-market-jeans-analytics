@@ -1,5 +1,5 @@
 -- =====================================================================
--- Myntra MarketWatch — 07_rating_analysis.sql
+-- Myntra MarketJean — 07_rating_analysis.sql
 -- Rating distribution and its relationship to other attributes
 -- =====================================================================
 
